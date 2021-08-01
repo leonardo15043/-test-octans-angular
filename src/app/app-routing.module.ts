@@ -3,8 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { UsersComponent } from './components/users/users.component';
 
 const routes: Routes = [
-  { path: 'users', component: UsersComponent },
-  { path: '**', pathMatch: 'full', redirectTo: 'users' }
+  { path: 'listuser', component: UsersComponent },
+  { path: '**', pathMatch: 'full', redirectTo: 'listuser' }
 ];
 
 @NgModule({

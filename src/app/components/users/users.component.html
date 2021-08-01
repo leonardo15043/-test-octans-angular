@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-outline-success mb-2" (click)="open(mymodal)">Crear</button>
+<button type="button" class="btn btn-outline-success mb-2" (click)="open(mymodal)">Crear</button> 
 <table class="table">
     <thead class="thead-dark">
       <tr>
@@ -10,11 +10,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>AUDITOR</td>
-        <td>Si</td>
+      <tr *ngFor="let user of users; let i = index;">
+        <th scope="row">{{ i }}</th>
+        <td>{{ user.name }}</td>
+        <td>{{ user.idRol }}</td>
+        <td>{{ user.active }}</td>
         <td> <button type="button" class="btn btn-primary">Editar</button> <button type="button" class="btn btn-danger ml-5 ">Eliminar</button></td>
       </tr>
     </tbody>

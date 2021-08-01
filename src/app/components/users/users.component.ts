@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-users',
@@ -9,12 +10,28 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class UsersComponent implements OnInit {
 
   closeResult: string;  
+  users:any = [];
+  @Input('data') item: any;
 
   constructor(
-    private modalService: NgbModal
-  ) {this.closeResult = ""; }
+    private modalService: NgbModal,
+    private _usersService: UsersService
+  ) {
+    this.closeResult = ""; 
+  }
+
+  ngOnChanges(){
+    this._usersService.getSearchUsers(this.item)
+        .subscribe( users => {
+          this.users = users;
+        });
+  }
 
   ngOnInit(): void {
+    this._usersService.getUsers()
+    .subscribe( users => {
+        this.users = users;
+    });
   }
 
   open(content:any) {

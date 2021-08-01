@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'octans-angular';
+  user:any;
+
+  searchUsers(search:any){
+      this.user = search;
+  }
 }

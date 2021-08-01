@@ -1,5 +1,5 @@
 
-<app-navbar></app-navbar>
+<app-navbar  (search)="searchUsers($event)"></app-navbar>
 <div class="container mt-5">
-  <router-outlet  ></router-outlet>
+  <app-users [data]="user"></app-users>
 </div>

@@ -70,11 +70,12 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "octans-angular:build"
+            "browserTarget": "octans-angular:build",
+            "proxyConfig": "proxy.conf.json"
           },
           "configurations": {
             "production": {
-              "browserTarget": "octans-angular:build:production"
+              "browserTarget": "octans-angular:build:production",
             }
           }
         },
