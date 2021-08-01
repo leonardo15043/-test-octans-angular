@@ -19,11 +19,24 @@ export class UsersService {
    }
 
    getUsers(){
-      return this.http.get(`/user`, {  headers: this.headers  }).pipe( map( data => data ));
+    return this.http.get(`/user`, {  headers: this.headers  }).pipe( map( data => data ));
+   }
+
+   getUser(id_user: any){
+    return this.http.get(`/user/${id_user}`, {  headers: this.headers  }).pipe( map( data => data ));
    }
 
    getSearchUsers(search : any){
     return this.http.get(`/user/query?name=${search}`, {  headers: this.headers  }).pipe( map( data => data ));
- }
+   }
+
+   saveUser(user: any) {
+    let body = JSON.stringify(user);
+    return this.http.post(`/user`, body , { headers: this.headers });
+   }
+
+   deleteUser( id : any ) {
+    return this.http.delete(`/user/${ id }`, { headers: this.headers });
+   }
    
 }
